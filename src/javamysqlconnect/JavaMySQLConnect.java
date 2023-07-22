@@ -20,14 +20,14 @@ public class JavaMySQLConnect {
         try{
         Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","root");
             System.out.println("Connected with the database successfully");
-            PreparedStatement preparedtatement = connection.prepareStatement("insert into student values(?,?,?,?)");
+            PreparedStatement preparedStatement = connection.prepareStatement("insert into student values(?,?,?,?)");
             
-            preparedtatement.setString(1, "1");
-            preparedtatement.setString(2,"Udara Manula");
-            preparedtatement.setString(3, "Computer Science");
-            preparedtatement.setString(4, "Badulla");
+            preparedStatement.setString(1, "2");
+            preparedStatement.setString(2,"Ravishan");
+            preparedStatement.setString(3, "Information Technology");
+            preparedStatement.setString(4, "Anuradhapura");
             
-            preparedtatement.executeUpdate();
+            preparedStatement.executeUpdate();
             System.out.println("Data inserted Successfully");
                    
     }catch(SQLException e){
