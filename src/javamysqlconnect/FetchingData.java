@@ -17,23 +17,36 @@ public class FetchingData {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","root");
             System.out.println("Connected with the database successfully");
                 
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from student  where rollno = 2");
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from student  where city = 'galle'");
             
             ResultSet resultSet =  preparedStatement.executeQuery();
             
-            while(resultSet.next()){
+            if(resultSet.next()){
+            do{
             
                 String rollNo = resultSet.getString("ROLLNO");
                 String name = resultSet.getString("STUDNAME");
                 String dept = resultSet.getString("DEPT");
                 String city = resultSet.getString("CITY");
                 
+             
+              
                 System.out.println("Roll No = "+ rollNo);
                 System.out.println("Name = "+ name);
                 System.out.println("Department = "+ dept);
                 System.out.println("City = "+ city);
+                
+              
+            
+            }while(resultSet.next());
+            }else{
+            
+                    System.out.println("The data your are looking for is not in database");
             
             }
+            
+            
+            
             }catch(SQLException e){
                     
                 System.out.println("Error while connecting to the database");    
@@ -46,4 +59,3 @@ public class FetchingData {
         
     }
     
-}
