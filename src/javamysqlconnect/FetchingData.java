@@ -14,10 +14,12 @@ public class FetchingData {
         
         try{
             
+            String sqlQuery = "select * from student  where city = 'Colombo'";
+            
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/studentdb","root","root");
             System.out.println("Connected with the database successfully");
                 
-            PreparedStatement preparedStatement = connection.prepareStatement("select * from student  where city = 'galle'");
+            PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
             
             ResultSet resultSet =  preparedStatement.executeQuery();
             
